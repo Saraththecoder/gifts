@@ -9,17 +9,12 @@ import {
 import heroLifestyle from '../assets/hero_lifestyle.png';
 import tshirtVariants from '../assets/tshirt_variants.png';
 import designPreview from '../assets/design_preview.png';
-import tshirtImg from '../assets/tshirt.png';
-import mugImg from '../assets/mug.png';
-import pillowImg from '../assets/pillow.png';
-import giftImg from '../assets/gift.png';
-import nameboardImg from '../assets/nameboard.png';
-import visitingCardImg from '../assets/visiting_card.png';
+import CloudinaryImg from '../components/UI/CloudinaryImg';
 import StatsCounter from '../components/StatsCounter/StatsCounter';
 import WhyUs from '../components/WhyUs/WhyUs';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20a%20custom%20order.%20Can%20you%20help%3F";
-const WA_BASE = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20a%20custom%20order.%20Can%20you%20help%3F";
+const WA_BASE = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
 
 const WAIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -68,12 +63,12 @@ const categories = [
 
 /* ── Featured Products ───────────────────────── */
 const featured = [
-  { image: tshirtImg, name: 'T-Shirt Printing', tag: 'Most Popular', waText: 'T-Shirt%20Printing.%20Can%20you%20help%3F' },
-  { image: mugImg, name: 'Mug Printing', tag: 'Best Seller', waText: 'Mug%20Printing.%20Can%20you%20help%3F' },
-  { image: pillowImg, name: 'Pillow Printing', tag: 'Gift Ready', waText: 'Pillow%20Printing.%20Can%20you%20help%3F' },
-  { image: giftImg, name: 'Custom Gift Sets', tag: 'New', waText: 'Custom%20Gift%20Sets.%20Can%20you%20help%3F' },
-  { image: nameboardImg, name: 'Name Boards', tag: '', waText: 'Name%20Boards.%20Can%20you%20help%3F' },
-  { image: visitingCardImg, name: 'Visiting Cards', tag: 'Fast', waText: 'Visiting%20Cards.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'tshirt_my65rk', name: 'T-Shirt Printing', tag: 'Most Popular', waText: 'T-Shirt%20Printing.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'mug_uc74ct', name: 'Mug Printing', tag: 'Best Seller', waText: 'Mug%20Printing.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'pillow_sj9rxq', name: 'Pillow Printing', tag: 'Gift Ready', waText: 'Pillow%20Printing.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'gift_uqvsof', name: 'Custom Gift Sets', tag: 'New', waText: 'Custom%20Gift%20Sets.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'nameboard_dnjdjo', name: 'Name Boards', tag: '', waText: 'Name%20Boards.%20Can%20you%20help%3F' },
+  { cloudinaryId: 'visiting_card_rlrpdr', name: 'Visiting Cards', tag: 'Fast', waText: 'Visiting%20Cards.%20Can%20you%20help%3F' },
 ];
 
 /* ── T-shirt color options ────────────────────── */
@@ -222,7 +217,7 @@ export default function HomePage() {
                   </div>
                 )}
                 <div style={{ width: '100%', height: 200, overflow: 'hidden', borderRadius: '22px 22px 0 0', background: 'linear-gradient(135deg,#0B132B,#1a2a5e)' }}>
-                  <img src={item.image} alt={item.name} loading="lazy" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' }} />
+                  <CloudinaryImg publicId={item.cloudinaryId} alt={item.name} className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' }} />
                 </div>
                 <div style={{ padding: '20px 24px 24px' }}>
                   <h3 style={{ fontSize: 18 }}>{item.name}</h3>

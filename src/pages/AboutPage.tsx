@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import WhyUs from '../components/WhyUs/WhyUs';
 import Process from '../components/Process/Process';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'd%20like%20to%20learn%20more%20about%20your%20services.";
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'd%20like%20to%20learn%20more%20about%20your%20services.";
 
 const milestones = [
   { year: '2018', title: 'Founded', desc: 'AR Prints started with a single printer and a big dream — to bring premium custom printing to everyone.' },

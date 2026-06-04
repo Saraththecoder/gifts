@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Mail, MapPin } from 'lucide-react';
 import Testimonials from '../components/Testimonials/Testimonials';
 
-const WA_NUMBER = "919999999999";
+const WA_NUMBER = "919949256844";
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20a%20custom%20order.%20Can%20you%20help%3F`;
 
 const WAIcon = ({ size = 22 }: { size?: number }) => (

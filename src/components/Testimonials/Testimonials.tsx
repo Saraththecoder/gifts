@@ -51,7 +51,7 @@ const testimonials = [
   },
 ];
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20ready%20to%20place%20a%20custom%20order.%20Can%20you%20help%3F";
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20ready%20to%20place%20a%20custom%20order.%20Can%20you%20help%3F";
 
 export default function Testimonials() {
   const refs = useRef<(HTMLDivElement | null)[]>([]);

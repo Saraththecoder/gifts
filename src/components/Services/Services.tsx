@@ -1,20 +1,15 @@
 import { useEffect, useRef } from 'react';
-import tshirtImg from '../../assets/tshirt.png';
-import mugImg from '../../assets/mug.png';
-import pillowImg from '../../assets/pillow.png';
-import giftImg from '../../assets/gift.png';
-import nameboardImg from '../../assets/nameboard.png';
-import visitingCardImg from '../../assets/visiting_card.png';
+import CloudinaryImg from '../UI/CloudinaryImg';
 import radiumImg from '../../assets/radium_board.png';
 import fluteImg from '../../assets/flute_board.png';
 import fireExitImg from '../../assets/fire_exit_board.png';
 
-const WA_BASE = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
+const WA_BASE = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
 
 const services = [
   {
     icon: '👕',
-    image: tshirtImg,
+    cloudinaryId: 'tshirt_my65rk',
     name: 'T-Shirt Printing',
     description: 'High-resolution custom prints on premium cotton blends. Perfect for teams, events, and personal style.',
     waText: 'T-Shirt%20Printing.%20Can%20you%20help%3F',
@@ -22,7 +17,7 @@ const services = [
   },
   {
     icon: '☕',
-    image: mugImg,
+    cloudinaryId: 'mug_uc74ct',
     name: 'Mug Printing',
     description: 'Dishwasher-safe sublimation printing on ceramic mugs. Ideal for gifts, corporate giveaways, and memories.',
     waText: 'Mug%20Printing.%20Can%20you%20help%3F',
@@ -30,7 +25,7 @@ const services = [
   },
   {
     icon: '🛋️',
-    image: pillowImg,
+    cloudinaryId: 'pillow_sj9rxq',
     name: 'Pillow Printing',
     description: 'Soft-touch fabric printing on plush cushions. Transform photos and designs into cozy keepsakes.',
     waText: 'Pillow%20Printing.%20Can%20you%20help%3F',
@@ -38,7 +33,7 @@ const services = [
   },
   {
     icon: '🎁',
-    image: giftImg,
+    cloudinaryId: 'gift_uqvsof',
     name: 'Customized Gifts',
     description: 'Curated personalized gift sets for every occasion — birthdays, anniversaries, festivals and corporates.',
     waText: 'Customized%20Gifts.%20Can%20you%20help%3F',
@@ -46,7 +41,7 @@ const services = [
   },
   {
     icon: '🪧',
-    image: nameboardImg,
+    cloudinaryId: 'nameboard_dnjdjo',
     name: 'Name Boards',
     description: 'Premium acrylic and metal name boards for offices, homes, and commercial spaces. Sharp and durable.',
     waText: 'Name%20Boards.%20Can%20you%20help%3F',
@@ -78,7 +73,7 @@ const services = [
   },
   {
     icon: '💼',
-    image: visitingCardImg,
+    cloudinaryId: 'visiting_card_rlrpdr',
     name: 'Visiting Cards',
     description: 'Premium business cards with matte, glossy, or spot-UV finish. Leave a lasting first impression.',
     waText: 'Visiting%20Cards.%20Can%20you%20help%3F',
@@ -130,7 +125,7 @@ export default function Services() {
               style={{ transitionDelay: `${(i % 3) * 100}ms`, padding: 0, overflow: 'hidden' }}
             >
               {/* Product Image or Emoji Fallback */}
-              {service.image ? (
+              {service.image || service.cloudinaryId ? (
                 <div style={{
                   width: '100%',
                   height: 180,
@@ -141,18 +136,32 @@ export default function Services() {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)',
-                    }}
-                    className="service-card-img"
-                  />
+                  {service.cloudinaryId ? (
+                    <CloudinaryImg
+                      publicId={service.cloudinaryId}
+                      alt={service.name}
+                      className="service-card-img"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)',
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)',
+                      }}
+                      className="service-card-img"
+                    />
+                  )}
                 </div>
               ) : (
                 <div style={{

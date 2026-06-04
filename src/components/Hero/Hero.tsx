@@ -1,9 +1,7 @@
 import { useEffect, useRef } from 'react';
-import tshirtImg from '../../assets/tshirt.png';
-import mugImg from '../../assets/mug.png';
-import pillowImg from '../../assets/pillow.png';
+import CloudinaryImg from '../UI/CloudinaryImg';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20a%20custom%20order.%20Can%20you%20help%3F";
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20a%20custom%20order.%20Can%20you%20help%3F";
 
 const WAIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -105,13 +103,13 @@ export default function Hero() {
           <div className="hero-mockups" aria-hidden="true">
             <div className="mockup-glow" />
             <div className="mockup-card mockup-tshirt">
-              <img src={tshirtImg} alt="Custom printed t-shirt mockup" loading="eager" />
+              <CloudinaryImg publicId="tshirt_my65rk" alt="Custom printed t-shirt mockup" />
             </div>
             <div className="mockup-card mockup-mug">
-              <img src={mugImg} alt="Custom printed mug mockup" loading="eager" />
+              <CloudinaryImg publicId="mug_uc74ct" alt="Custom printed mug mockup" />
             </div>
             <div className="mockup-card mockup-pillow">
-              <img src={pillowImg} alt="Custom printed pillow mockup" loading="eager" />
+              <CloudinaryImg publicId="pillow_sj9rxq" alt="Custom printed pillow mockup" />
             </div>
           </div>
         </div>

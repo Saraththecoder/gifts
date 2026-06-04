@@ -1,28 +1,23 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import tshirtImg from '../assets/tshirt.png';
-import mugImg from '../assets/mug.png';
-import pillowImg from '../assets/pillow.png';
-import giftImg from '../assets/gift.png';
-import nameboardImg from '../assets/nameboard.png';
-import visitingCardImg from '../assets/visiting_card.png';
+import CloudinaryImg from '../components/UI/CloudinaryImg';
 import radiumImg from '../assets/radium_board.png';
 import fluteImg from '../assets/flute_board.png';
 import fireExitImg from '../assets/fire_exit_board.png';
 import Process from '../components/Process/Process';
 
-const WA_BASE = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
+const WA_BASE = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20";
 
 const services = [
-  { icon: '👕', image: tshirtImg, name: 'T-Shirt Printing', waText: 'T-Shirt%20Printing.%20Can%20you%20help%3F', id: 'tshirt', desc: 'High-resolution custom prints on premium cotton blends. Perfect for teams, events, and personal style. We support round-neck, polo, and full-sleeve styles.', tag: 'Most Popular' },
-  { icon: '☕', image: mugImg, name: 'Mug Printing', waText: 'Mug%20Printing.%20Can%20you%20help%3F', id: 'mugs', desc: 'Dishwasher-safe sublimation printing on 11oz and 15oz ceramic mugs. Ideal for gifts, corporate giveaways, and memories.', tag: '' },
-  { icon: '🛋️', image: pillowImg, name: 'Pillow Printing', waText: 'Pillow%20Printing.%20Can%20you%20help%3F', id: 'pillows', desc: 'Soft-touch fabric printing on plush cushions. Transform photos and designs into cozy keepsakes in 12"×12" or 16"×16" sizes.', tag: '' },
-  { icon: '🎁', image: giftImg, name: 'Customized Gifts', waText: 'Customized%20Gifts.%20Can%20you%20help%3F', id: 'gifts', desc: 'Curated personalized gift sets for every occasion — birthdays, anniversaries, festivals, and corporate gifting.', tag: 'Gift Ready' },
-  { icon: '🪧', image: nameboardImg, name: 'Name Boards', waText: 'Name%20Boards.%20Can%20you%20help%3F', id: 'nameboards', desc: 'Premium acrylic, ACP, and metal name boards for offices, homes, clinics, and commercial spaces. Sharp and durable.', tag: '' },
+  { icon: '👕', cloudinaryId: 'tshirt_my65rk', name: 'T-Shirt Printing', waText: 'T-Shirt%20Printing.%20Can%20you%20help%3F', id: 'tshirt', desc: 'High-resolution custom prints on premium cotton blends. Perfect for teams, events, and personal style. We support round-neck, polo, and full-sleeve styles.', tag: 'Most Popular' },
+  { icon: '☕', cloudinaryId: 'mug_uc74ct', name: 'Mug Printing', waText: 'Mug%20Printing.%20Can%20you%20help%3F', id: 'mugs', desc: 'Dishwasher-safe sublimation printing on 11oz and 15oz ceramic mugs. Ideal for gifts, corporate giveaways, and memories.', tag: '' },
+  { icon: '🛋️', cloudinaryId: 'pillow_sj9rxq', name: 'Pillow Printing', waText: 'Pillow%20Printing.%20Can%20you%20help%3F', id: 'pillows', desc: 'Soft-touch fabric printing on plush cushions. Transform photos and designs into cozy keepsakes in 12"×12" or 16"×16" sizes.', tag: '' },
+  { icon: '🎁', cloudinaryId: 'gift_uqvsof', name: 'Customized Gifts', waText: 'Customized%20Gifts.%20Can%20you%20help%3F', id: 'gifts', desc: 'Curated personalized gift sets for every occasion — birthdays, anniversaries, festivals, and corporate gifting.', tag: 'Gift Ready' },
+  { icon: '🪧', cloudinaryId: 'nameboard_dnjdjo', name: 'Name Boards', waText: 'Name%20Boards.%20Can%20you%20help%3F', id: 'nameboards', desc: 'Premium acrylic, ACP, and metal name boards for offices, homes, clinics, and commercial spaces. Sharp and durable.', tag: '' },
   { icon: '🌟', image: radiumImg, name: 'Radium Boards', waText: 'Radium%20Boards.%20Can%20you%20help%3F', id: 'radium', desc: 'Glow-in-the-dark radium signage for maximum visibility in low-light conditions. Safety meets professional style.', tag: 'Safety' },
   { icon: '📋', image: fluteImg, name: 'Flute Boards', waText: 'Flute%20Boards.%20Can%20you%20help%3F', id: 'flute', desc: 'Lightweight, weather-resistant corrugated plastic boards perfect for promotional displays, events, and outdoor signage.', tag: '' },
   { icon: '🚪', image: fireExitImg, name: 'Fire Exit Boards', waText: 'Fire%20Exit%20Boards.%20Can%20you%20help%3F', id: 'fire-exit', desc: 'Fully compliant fire safety signage with high-visibility printing. Essential for offices, malls, schools, and all commercial premises.', tag: 'Compliance' },
-  { icon: '💼', image: visitingCardImg, name: 'Visiting Cards', waText: 'Visiting%20Cards.%20Can%20you%20help%3F', id: 'visiting-cards', desc: 'Premium business cards with matte, glossy, spot-UV, or embossed finish. Leave a lasting first impression every time.', tag: 'Fast Turnaround' },
+  { icon: '💼', cloudinaryId: 'visiting_card_rlrpdr', name: 'Visiting Cards', waText: 'Visiting%20Cards.%20Can%20you%20help%3F', id: 'visiting-cards', desc: 'Premium business cards with matte, glossy, spot-UV, or embossed finish. Leave a lasting first impression every time.', tag: 'Fast Turnaround' },
 ];
 
 export default function ServicesPage() {
@@ -82,7 +77,11 @@ export default function ServicesPage() {
                 )}
                 {/* Image */}
                 <div style={{ width: '100%', height: 180, overflow: 'hidden', borderRadius: '22px 22px 0 0', background: 'linear-gradient(135deg, #0B132B 0%, #1a2a5e 100%)' }}>
-                  <img src={s.image} alt={s.name} loading="lazy" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' }} />
+                  {s.cloudinaryId ? (
+                    <CloudinaryImg publicId={s.cloudinaryId} alt={s.name} className="service-card-img" />
+                  ) : (
+                    <img src={s.image} alt={s.name} loading="lazy" className="service-card-img" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s cubic-bezier(0.4,0,0.2,1)' }} />
+                  )}
                 </div>
                 {/* Body */}
                 <div style={{ padding: '24px 28px 28px' }}>

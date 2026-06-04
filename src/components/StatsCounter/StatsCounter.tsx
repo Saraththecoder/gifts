@@ -18,18 +18,31 @@ function useCountUp(target: number, duration: number, triggered: boolean) {
 
   useEffect(() => {
     if (!triggered) return;
-    let start = 0;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
+    
+    let startTime: number | null = null;
+    let animationFrame: number;
+
+    const easeOutExpo = (t: number): number => {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    };
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      const easedProgress = easeOutExpo(progress);
+      setCount(Math.floor(easedProgress * target));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(step);
       } else {
-        setCount(Math.floor(start));
+        setCount(target);
       }
-    }, 16);
-    return () => clearInterval(timer);
+    };
+
+    animationFrame = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, [target, duration, triggered]);
 
   return count;
@@ -59,7 +72,7 @@ export default function StatsCounter() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();

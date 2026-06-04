@@ -1,29 +1,49 @@
 import { useState, useEffect, useRef } from 'react';
-import tshirtImg from '../../assets/tshirt.png';
-import mugImg from '../../assets/mug.png';
-import pillowImg from '../../assets/pillow.png';
-import giftImg from '../../assets/gift.png';
-import nameboardImg from '../../assets/nameboard.png';
-import visitingCardImg from '../../assets/visiting_card.png';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20ordering%20something%20similar.%20Can%20you%20help%3F";
+import CloudinaryImg from '../UI/CloudinaryImg';
 
-const portfolioItems = [
-  { id: 'p1', src: tshirtImg, alt: 'Custom printed t-shirts', label: 'T-Shirts', category: 'tshirts', wide: true },
-  { id: 'p2', src: mugImg, alt: 'Custom printed mugs', label: 'Mugs', category: 'mugs' },
-  { id: 'p3', src: pillowImg, alt: 'Custom printed pillows', label: 'Pillows', category: 'pillows', tall: true },
-  { id: 'p4', src: giftImg, alt: 'Personalized gift sets', label: 'Gifts', category: 'gifts' },
-  { id: 'p5', src: nameboardImg, alt: 'Custom name board signage', label: 'Boards', category: 'boards', wide: true },
-  { id: 'p6', src: visitingCardImg, alt: 'Premium visiting cards', label: 'Cards', category: 'cards' },
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20interested%20in%20ordering%20something%20similar.%20Can%20you%20help%3F";
+
+type PortfolioItem = {
+  id: string;
+  alt: string;
+  label: string;
+  category: string;
+  src?: string;
+  cloudinaryId?: string;
+  wide?: boolean;
+  tall?: boolean;
+};
+
+const portfolioItems: PortfolioItem[] = [
+  { id: 'p1', cloudinaryId: 'tshirt_my65rk', alt: 'Custom printed t-shirts', label: 'T-Shirts', category: 'tshirts', wide: true },
+  { id: 'p2', cloudinaryId: 'mug_uc74ct', alt: 'Custom printed mugs', label: 'Mugs', category: 'mugs' },
+  { id: 'p3', cloudinaryId: 'pillow_sj9rxq', alt: 'Custom printed pillows', label: 'Pillows', category: 'pillows', tall: true },
+  { id: 'p4', cloudinaryId: 'gift_uqvsof', alt: 'Personalized gift sets', label: 'Gifts', category: 'gifts' },
+  { id: 'p5', cloudinaryId: 'nameboard_dnjdjo', alt: 'Custom name board signage', label: 'Boards', category: 'boards', wide: true },
+  { id: 'p6', cloudinaryId: 'visiting_card_rlrpdr', alt: 'Premium visiting cards', label: 'Cards', category: 'cards' },
+  { id: 'c1', cloudinaryId: '4711f6b9-6c13-494f-b1c9-2315513ad02a_qsr76y', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c2', cloudinaryId: '267050a4-d117-44a4-8191-a3dfc34b10f9_gt2sxi', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c3', cloudinaryId: '233b9736-4cc1-4f8b-ba86-4268b5d1cea2_egitvo', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c4', cloudinaryId: '0688f11e-bd8f-4bd7-a373-6681d4e59811_smvf5h', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c5', cloudinaryId: 'b6942b7d-14b0-486d-8b9d-de1261e8bfe2_o9xb22', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c6', cloudinaryId: 'e8fb13cb-d34d-497d-9c96-5f761a49fc69_fzystq', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c7', cloudinaryId: 'b4c3fe3c-3621-4912-b650-3d6894958c8b_wfbxho', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c8', cloudinaryId: 'fa4e87a4-4ac9-4d40-b454-365a7b5a93e5_zvagbo', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c9', cloudinaryId: 'bfe08790-0c9b-402e-a8d9-bff025894ef4_plbeq8', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c10', cloudinaryId: 'b18a15ac-7f23-4b08-9d7c-2a9fc5034988_jtwozt', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c11', cloudinaryId: 'c718095c-e133-4cce-b38d-38b9065dce72_hyfz05', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
+  { id: 'c12', cloudinaryId: 'f996a32e-0504-4ca1-b646-286706109909_dtbgus', alt: 'Portfolio Item', label: 'Custom', category: 'gifts' },
 ];
 
-const filters = ['All', 'T-Shirts', 'Mugs', 'Boards', 'Cards'];
+const filters = ['All', 'T-Shirts', 'Mugs', 'Boards', 'Cards', 'Gifts'];
 const categoryMap: Record<string, string> = {
   'All': 'all',
   'T-Shirts': 'tshirts',
   'Mugs': 'mugs',
   'Boards': 'boards',
   'Cards': 'cards',
+  'Gifts': 'gifts',
 };
 
 export default function Portfolio() {
@@ -90,7 +110,11 @@ export default function Portfolio() {
               role="listitem"
               id={`portfolio-${item.id}`}
             >
-              <img src={item.src} alt={item.alt} loading="lazy" />
+              {item.cloudinaryId ? (
+                <CloudinaryImg publicId={item.cloudinaryId} alt={item.alt} />
+              ) : (
+                <img src={item.src} alt={item.alt} loading="lazy" />
+              )}
               <div className="portfolio-overlay">
                 <div>
                   <p style={{

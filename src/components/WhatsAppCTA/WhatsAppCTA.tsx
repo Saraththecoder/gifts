@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const WA_LINK = "https://wa.me/919999999999?text=Hi%20AR%20Prints!%20I'm%20ready%20to%20print%20something%20amazing.%20Can%20you%20help%3F";
+const WA_LINK = "https://wa.me/919949256844?text=Hi%20AR%20Prints!%20I'm%20ready%20to%20print%20something%20amazing.%20Can%20you%20help%3F";
 
 const WAIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

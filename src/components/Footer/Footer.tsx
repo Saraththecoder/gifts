@@ -45,17 +45,11 @@ export default function Footer() {
                 </svg>
               </a>
               {/* Instagram */}
-              <a href="#" className="social-link" aria-label="Instagram" title="Instagram">
+              <a href="https://www.instagram.com/anilreddybaddipally" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram" title="Instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <circle cx="12" cy="12" r="4"/>
                   <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-                </svg>
-              </a>
-              {/* Facebook */}
-              <a href="#" className="social-link" aria-label="Facebook" title="Facebook">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
                 </svg>
               </a>
             </div>
@@ -81,7 +75,7 @@ export default function Footer() {
                 <div className="contact-icon" aria-hidden="true" style={{ display: 'flex', color: 'var(--gold)' }}><Phone size={20} /></div>
                 <div className="contact-text">
                   <a href={WA_LINK} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp us">
-                    +91 99999 99999
+                    +91 99492 56844
                   </a>
                   <br />
                   <span style={{ fontSize: 12 }}>WhatsApp Available</span>
@@ -90,14 +84,14 @@ export default function Footer() {
               <div className="contact-item">
                 <div className="contact-icon" aria-hidden="true" style={{ display: 'flex', color: 'var(--gold)' }}><Mail size={20} /></div>
                 <div className="contact-text">
-                  <a href="mailto:hello@arprints.in" aria-label="Email us">
-                    hello@arprints.in
+                  <a href="mailto:arprints2025@gmail.com" aria-label="Email us">
+                    arprints2025@gmail.com
                   </a>
                 </div>
               </div>
               <div className="contact-item">
                 <div className="contact-icon" aria-hidden="true" style={{ display: 'flex', color: 'var(--gold)' }}><MapPin size={20} /></div>
-                <div className="contact-text">Your City, India</div>
+                <div className="contact-text">Ou colony, shaikpet, manikonda</div>
               </div>
             </address>
 

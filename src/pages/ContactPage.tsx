@@ -96,7 +96,7 @@ export default function ContactPage() {
                   }}
                 >
                   <WAIcon size={16} />
-                  +91 99999 99999
+                  +91 99492 56844
                 </a>
               </div>
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
                     <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>For detailed inquiries</div>
                   </div>
                 </div>
-                <a href="mailto:hello@arprints.in" style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>hello@arprints.in</a>
+                <a href="mailto:arprints2025@gmail.com" style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>arprints2025@gmail.com</a>
               </div>
 
               {/* Location Card */}
@@ -133,7 +133,7 @@ export default function ContactPage() {
                     <div style={{ fontSize: 13, color: 'var(--text-secondary)' }}>Visit us in person</div>
                   </div>
                 </div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>Your City, India<br />Mon–Sat: 9am – 8pm</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 15 }}>Ou colony, shaikpet, manikonda<br />Mon–Sat: 9am – 8pm</p>
               </div>
             </div>
 

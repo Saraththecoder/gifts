@@ -37,7 +37,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="logo" aria-label="AR Prints & Customized Gifts — Home">
-            <div className="logo-icon">AR</div>
+            <img src="/logo.png" alt="AR Prints Logo" className="logo-icon-img" style={{ height: '40px', width: 'auto', marginRight: '8px', objectFit: 'contain' }} />
             <div className="logo-text">
               <strong>AR Prints</strong>
               <span>Customized Gifts</span>
